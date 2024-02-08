@@ -4,9 +4,14 @@
     "@slack/web-api": "^6.9.0",
     "@slack/webhook": "^6.1.0",
     "axios": "^1.5.0",
+    "got": "^13.0.0",
+    "needle": "^3.2.0",
     "newsapi": "^2.4.1",
-    "node-fetch": "^3.3.2",
+    "node-fetch": "^2.6.6",
+    "oauth-1.0a": "^2.2.6",
     "slack-webhook": "^1.0.0",
-    "translate-google-api": "^1.0.4"
+    "translate-google-api": "^1.0.4",
+    "twitter": "^1.1.0",
+    "twitter-api-v2": "^1.15.1"
   }
 }

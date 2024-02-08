@@ -1,21 +1,17 @@
+const fetch = require('node-fetch');
 const axios = require('axios');
 const { IncomingWebhook } = require('@slack/webhook');
 const { Translate } = require('@google-cloud/translate').v2;
 
 // APIキーとSlackの設定
-const newsApiKey = "02def8e981154143b19fe7d4622df65d";
 const slackWebhookUrl = "https://hooks.slack.com/services/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";
 const slackChannel = "C05L1M7JC8L"; // 投稿するSlackのチャンネルを指定
-
 const googleApiKey = 'AIzaSyD4HQ7xyXcmLCFkcpYo8ve-R6fxSB1H1HY';
 const newsdataiokey = 'pub_2718615567c2ba610970ca8b24acdb7eba883';
-
-const target = 'ja';
 
 var countArticle = 0;
 
 const slack = new IncomingWebhook(slackWebhookUrl);
-var translate = new Translate();
 
 const sourceLanguage = "ka";
 const targetLanguage = "ja";
@@ -28,6 +24,7 @@ function truncateString(str, maxLength) {
   }
 }
 
+//引数で受け取った文字列を特定の言語に翻訳
 async function translateText(str, sourceLang, targetLang) {
   const url = `https://translation.googleapis.com/language/translate/v2?key=${googleApiKey}&q=${encodeURIComponent(str)}&source=${sourceLang}&target=${targetLang}`;
 
@@ -78,4 +75,4 @@ async function getAndPostNews() {
 }
 
 // 実行
-getAndPostNews();
+exports.handler = getAndPostNews();
