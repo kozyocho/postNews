@@ -1,1 +1,2 @@
 # postNews
+Slackのチャンネルにニュースを投稿するSlackアプリ
